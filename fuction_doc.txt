@@ -1,0 +1,28 @@
+========================
+== Functions Document ==
+========================
+
+
+/*
+ ** Get ALL Function V2.0
+ ** Function To Get All Records Field From Any Table In Database
+ ** $where Can Be Empty
+ ** $ordering By Default DESC Chaing To ASC  
+ */
+
+ function getAllFrom($field, $table, $where = NULL, $and = NULL, $oredrfield, $ordering = "DESC") {
+
+ global $con;
+ 
+ $getAll = $con->prepare("SELECT $field FROM $table $where $and ORDER BY $oredrfield $ordering");
+
+ $getAll->execute();
+
+ $all = $getAll->fetchAll();
+
+ return $all;
+
+ // indexAdmin Page //
+
+ } 
+
